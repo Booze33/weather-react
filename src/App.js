@@ -1,6 +1,11 @@
+import Nav from './components/navigation/Nav';
+
 function App() {
   return (
-    <h1>Heavy is the head.</h1>
+    <body>
+      <Nav />
+      <h1>Heavy is the head.</h1>
+    </body>
   );
 }
 
