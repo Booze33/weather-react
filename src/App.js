@@ -1,11 +1,11 @@
 import Nav from './components/navigation/Nav';
-import Weather from './components/weather/Weather';
+import Display from './components/display/Display';
 
 function App() {
   return (
     <body>
       <Nav />
-      <Weather />
+      <Display />
     </body>
   );
 }

@@ -1,50 +1,31 @@
-import { useDispatch, useSelector } from 'react-redux';
-import React, { useEffect, useState } from 'react';
-import { fetchWeatherData } from '../../redux/weatherSlice';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-function Weather() {
-  const dispatch = useDispatch();
-  const { loading, error, data } = useSelector((state) => state.weather);
-  const [locationName, setLocationName] = useState('');
-
-  const handleInputChange = (event) => {
-    setLocationName(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    dispatch(fetchWeatherData(locationName));
-  };
-
-  useEffect(() => {
-    dispatch(fetchWeatherData('London'));
-  }, [dispatch]);
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return (
-      <p>
-        Error: Failed to get data. Try again
-      </p>
-    );
-  }
-
-  if (!data) {
-    return null;
-  }
+function Weather(props) {
+  const {
+    data: {
+      name,
+      sys,
+      weather,
+      main,
+    },
+  } = props;
 
   return (
-    <section>
-      <form className="form">
-        Enter Location
-        <input type="text" value={locationName} onChange={handleInputChange} />
-        <button type="submit" onClick={handleSubmit}>Search</button>
-      </form>
-    </section>
+    <div className="display">
+      <h1>{name}</h1>
+      <p>{sys.visibility}</p>
+      <p>{weather[0].description}</p>
+      <p>
+        {main.temp}
+        °C
+      </p>
+    </div>
   );
 }
+
+Weather.propTypes = {
+  data: PropTypes.string.isRequired,
+};
 
 export default Weather;

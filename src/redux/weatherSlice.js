@@ -1,5 +1,3 @@
-// actions.js
-
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -9,7 +7,7 @@ export const fetchWeatherData = createAsyncThunk('fetchWeather', async (location
   const apiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${locationName}&appid=${apiKey}`;
 
   const response = await axios.get(apiURL);
-  console.log(response.data);
+  console.log(response);
 
   const weather = response.data.list.map((item) => ({
     ...item,
