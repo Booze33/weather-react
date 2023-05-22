@@ -43,15 +43,6 @@ function Weather() {
         <input type="text" value={locationName} onChange={handleInputChange} />
         <button type="submit" onClick={handleSubmit}>Search</button>
       </form>
-      <div className="display">
-        <h1>{data.name}</h1>
-        <p>{data.sys.country}</p>
-        <p>{data.weather[0].description}</p>
-        <p>
-          {data.main.temp}
-          °C
-        </p>
-      </div>
     </section>
   );
 }
