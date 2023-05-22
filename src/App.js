@@ -1,10 +1,11 @@
 import Nav from './components/navigation/Nav';
+import Weather from './components/weather/Weather';
 
 function App() {
   return (
     <body>
       <Nav />
-      <h1>Heavy is the head.</h1>
+      <Weather />
     </body>
   );
 }
