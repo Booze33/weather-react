@@ -7,12 +7,12 @@ export const fetchWeatherData = createAsyncThunk('fetchWeather', async (location
   const apiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${locationName}&appid=${apiKey}`;
 
   const response = await axios.get(apiURL);
-  console.log(response);
+  console.log(response.data.list[0].weather[0].description);
 
-  const weather = response.data.list.map((item) => ({
-    ...item,
-    id: item.dt,
-  }));
+  const weather = {
+    condition: response.data.list[0].weather[0].description,
+    temperature: response.data.list[0].main.temp,
+  };
 
   return weather;
 });

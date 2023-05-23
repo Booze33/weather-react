@@ -1,12 +1,23 @@
+import {
+  Route,
+  Routes,
+  BrowserRouter,
+} from 'react-router-dom';
 import Nav from './components/navigation/Nav';
-import Display from './components/display/Display';
+import Countries from './components/countries/Countries';
+import Weather from './components/weather/Weather';
 
 function App() {
   return (
-    <body>
-      <Nav />
-      <Display />
-    </body>
+    <>
+      <BrowserRouter>
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Countries />} />
+          <Route path="/country/" element={<Weather />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
