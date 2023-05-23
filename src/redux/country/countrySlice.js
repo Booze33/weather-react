@@ -7,8 +7,9 @@ export const fetchCities = createAsyncThunk('fetchCities', async () => {
   const response = await axios.get(apiURL);
 
   const cities = response.data._embedded['city:search-results'].map(
-    (result) => result.matching_full_name,
+    (result) => result.matching_full_name.split(',')[0].trim(),
   );
+
   console.log(cities);
 
   return cities;

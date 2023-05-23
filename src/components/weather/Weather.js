@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { fetchWeatherData } from '../../redux/weather/weatherSlice';
+import { fetchCities } from '../../redux/country/countrySlice';
 
 function convert(kelvin) {
   const cel = kelvin - 273;
@@ -16,7 +16,7 @@ function Weather() {
   const { loading, error, data } = useSelector((state) => state.weather);
 
   useEffect(() => {
-    dispatch(fetchWeatherData('London'));
+    dispatch(fetchCities());
   }, [dispatch]);
 
   if (loading) {

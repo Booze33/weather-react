@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { fetchCities } from '../../redux/country/countrySlice';
+import { fetchWeatherData } from '../../redux/weather/weatherSlice';
 
 function Countries() {
   const dispatch = useDispatch();
@@ -12,6 +13,10 @@ function Countries() {
       dispatch(fetchCities());
     }
   }, [cities.status, dispatch]);
+
+  const handleCityClick = (cityName) => {
+    dispatch(fetchWeatherData(cityName));
+  };
 
   return (
     <div>
@@ -24,7 +29,7 @@ function Countries() {
             cities.data.map((city) => (
               <div key={city}>
                 <h2>{city}</h2>
-                <button type="button">
+                <button type="button" onClick={() => handleCityClick(city)}>
                   <NavLink to="/country/">Check Weather</NavLink>
                 </button>
               </div>
