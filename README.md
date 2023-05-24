@@ -198,6 +198,8 @@ If you like this project give me a star ⭐️
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
+Original design idea by Nelson Sakwa on Behance.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
