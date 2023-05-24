@@ -86,6 +86,7 @@ Redux Toolkit,
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Live Demo Link](https://weather-web-bp0r.onrender.com/)
+- [Video Presentation](https://www.loom.com/share/1f5d277be254446b814b296250a0d9bc)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
