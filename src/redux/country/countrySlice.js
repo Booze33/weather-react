@@ -17,12 +17,17 @@ const initialState = {
   data: [],
   status: 'idle',
   error: null,
+  filter: '', // Add a filter property to store the search input value
 };
 
 const citySlice = createSlice({
   name: 'city',
   initialState,
-  reducers: {},
+  reducers: {
+    setFilter(state, action) {
+      state.filter = action.payload; // Update the filter value
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchCities.pending, (state) => ({
       ...state,
@@ -42,4 +47,5 @@ const citySlice = createSlice({
   },
 });
 
+export const { setFilter } = citySlice.actions;
 export default citySlice.reducer;

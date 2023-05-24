@@ -20,6 +20,12 @@ function Countries() {
     dispatch(fetchWeatherData(cityName));
   };
 
+  const filterCities = (cities, filter) => cities.filter(
+    (city) => city.toLowerCase().includes(filter.toLowerCase()),
+  );
+
+  const filteredCities = filterCities(cities.data, cities.filter);
+
   return (
     <div>
       {cities.status === 'loading' && <div>Loading...</div>}
@@ -28,13 +34,19 @@ function Countries() {
         <div className="big-container">
           <h1 className="h1-2">Your Cities</h1>
           <div className="container">
-            {cities.data && cities.data.length > 0 ? (
-              cities.data.map((city) => (
+            {filteredCities && filteredCities.length > 0 ? (
+              filteredCities.map((city) => (
                 <div key={city} className="city-container">
                   <GiWorld className="galaxy" />
                   <h2 className="h2">{city}</h2>
-                  <button type="button" className="button-1" onClick={() => handleCityClick(city)}>
-                    <NavLink to="/country/" className="navlink">Check Weather</NavLink>
+                  <button
+                    type="button"
+                    className="button-1"
+                    onClick={() => handleCityClick(city)}
+                  >
+                    <NavLink to="/country/" className="navlink">
+                      Check Weather
+                    </NavLink>
                   </button>
                 </div>
               ))
