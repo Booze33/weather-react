@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { fetchCities } from '../../redux/country/countrySlice';
 import './Weather.css';
 
-function convert(kelvin) {
+export function convert(kelvin) {
   const cel = kelvin - 273;
 
   return cel;
@@ -37,7 +37,7 @@ function Weather() {
   }
 
   return (
-    <section className="section">
+    <section className="section" data-testid="section">
       <button type="button" className="button-2">
         <NavLink to="/" className="navlink-2">Back</NavLink>
       </button>
