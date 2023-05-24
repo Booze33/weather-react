@@ -22,7 +22,7 @@ function Nav() {
       <nav>
         <input
           type="text"
-          placeholder="Search for country"
+          placeholder="Search for a city"
           onChange={handleFilterChange}
         />
         <div>

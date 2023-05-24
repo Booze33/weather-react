@@ -6,6 +6,7 @@ export const fetchCities = createAsyncThunk('fetchCities', async () => {
 
   const response = await axios.get(apiURL);
 
+  // eslint-disable-next-line no-underscore-dangle
   const cities = response.data._embedded['city:search-results'].map(
     (result) => result.matching_full_name.split(',')[0].trim(),
   );
@@ -17,7 +18,7 @@ const initialState = {
   data: [],
   status: 'idle',
   error: null,
-  filter: '', // Add a filter property to store the search input value
+  filter: '',
 };
 
 const citySlice = createSlice({
@@ -25,7 +26,7 @@ const citySlice = createSlice({
   initialState,
   reducers: {
     setFilter(state, action) {
-      state.filter = action.payload; // Update the filter value
+      state.filter = action.payload;
     },
   },
   extraReducers: (builder) => {
