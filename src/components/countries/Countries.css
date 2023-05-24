@@ -1,0 +1,79 @@
+.big-container {
+  background-image: url('../../asset/1684888940883.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 3rem;
+  margin-top: -0.5rem;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.h1-2 {
+  font-size: 35px;
+  margin-left: 45%;
+  color: #540834;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.city-container {
+  background-color: rgba(95, 2, 61, 0.5);
+  height: 13rem;
+  margin: 2rem;
+  width: 11rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+}
+
+.city-container:nth-child(odd) {
+  background-color: rgba(141, 1, 99, 0.35);
+}
+
+.galaxy {
+  color: #9d0b51;
+  font-size: 5rem;
+  margin: auto;
+}
+
+.h2 {
+  color: #9d0b51;
+  font-size: 25px;
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.button-1 {
+  color: #9d0b51;
+  font-size: 18px;
+  border: 2px solid #9d0b51;
+  border-radius: 4px;
+  width: 8rem;
+  height: 3rem;
+  background-color: transparent;
+  margin: auto;
+  transition: all 1s;
+}
+
+.button-1:hover {
+  color: #1b0112;
+  font-size: 20px;
+  background-color: #9d0b51;
+  cursor: pointer;
+}
+
+.navlink {
+  color: #9d0b51;
+  text-decoration: none;
+}
+
+.navlink:hover {
+  color: #1b0112;
+  transition: all 2s;
+}

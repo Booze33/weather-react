@@ -2,14 +2,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { fetchCities } from '../../redux/country/countrySlice';
+import './Weather.css';
 
 function convert(kelvin) {
   const cel = kelvin - 273;
 
   return cel;
 }
-
-console.log(convert(283));
 
 function Weather() {
   const dispatch = useDispatch();
@@ -38,14 +37,26 @@ function Weather() {
   }
 
   return (
-    <section>
-      <h2>Weather</h2>
-      <p>Condition: {data.condition}</p>
-      <p>Temperature In Kelvin: {data.temperature}°k</p>
-      <p>Temperature in Celsius: {Math.floor(convert(data.temperature))}°C</p>
-      <button type="button">
-        <NavLink to="/">Back</NavLink>
+    <section className="section">
+      <button type="button" className="button-2">
+        <NavLink to="/" className="navlink-2">Back</NavLink>
       </button>
+      <h2 className="h2-2">The Weather Today Is..</h2>
+      <h3 className="h3">{data.condition.toUpperCase()}</h3>
+      <div className="div-p">
+        <p className="p-temp">Temperature in Kelvin:</p>
+        <p className="p-deg">
+          {data.temperature}
+          °k
+        </p>
+      </div>
+      <div className="div-p">
+        <p className="p-temp">Temperature In Celsius:</p>
+        <p className="p-deg">
+          {Math.floor(convert(data.temperature))}
+          °c
+        </p>
+      </div>
     </section>
   );
 }

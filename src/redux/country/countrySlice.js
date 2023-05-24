@@ -10,8 +10,6 @@ export const fetchCities = createAsyncThunk('fetchCities', async () => {
     (result) => result.matching_full_name.split(',')[0].trim(),
   );
 
-  console.log(cities);
-
   return cities;
 });
 
@@ -30,13 +28,11 @@ const citySlice = createSlice({
       ...state,
       status: 'loading',
     }));
-    builder.addCase(fetchCities.fulfilled, (state, action) => {
-      return {
-        ...state,
-        data: action.payload,
-        status: 'succeeded',
-      };
-    });
+    builder.addCase(fetchCities.fulfilled, (state, action) => ({
+      ...state,
+      data: action.payload,
+      status: 'succeeded',
+    }));
 
     builder.addCase(fetchCities.rejected, (state, action) => ({
       ...state,
