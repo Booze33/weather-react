@@ -41,8 +41,16 @@ function Weather() {
       <button type="button" className="button-2">
         <NavLink to="/" className="navlink-2">Back</NavLink>
       </button>
-      <h2 className="h2-2">The Weather Today Is..</h2>
-      <h3 className="h3">{data.condition.toUpperCase()}</h3>
+      <h2 className="h2-2">
+        {`The Weather In ${data.city} Is`}
+      </h2>
+      <h3 className="h3">
+        {data.main}
+        <img src={`https://openweathermap.org/img/w/${data.img}.png`} alt="weather img" className="weather-img" />
+      </h3>
+      <h4 className="h4">
+        {`Weather Condition: ${data.condition.toUpperCase()}`}
+      </h4>
       <div className="div-p">
         <p className="p-temp">Temperature in Kelvin:</p>
         <p className="p-deg">
@@ -54,6 +62,20 @@ function Weather() {
         <p className="p-temp">Temperature In Celsius:</p>
         <p className="p-deg">
           {Math.floor(convert(data.temperature))}
+          °c
+        </p>
+      </div>
+      <div className="div-p">
+        <p className="p-temp">Temperature Tomorrow Is:</p>
+        <p className="p-deg">
+          {Math.floor(convert(data.tomorrow))}
+          °c
+        </p>
+      </div>
+      <div className="div-p">
+        <p className="p-temp">Temperature In A Day After Tomorrow:</p>
+        <p className="p-deg">
+          {Math.floor(convert(data.nextThreeDays))}
           °c
         </p>
       </div>
