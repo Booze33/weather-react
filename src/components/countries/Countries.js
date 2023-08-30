@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { GiWorld } from 'react-icons/gi';
 import { fetchCities } from '../../redux/country/countrySlice';
 import { fetchWeatherData } from '../../redux/weather/weatherSlice';
+import Loading from '../loading/loading';
 import './Countries.css';
 
 function Countries() {
@@ -28,7 +29,7 @@ function Countries() {
 
   return (
     <div>
-      {cities.status === 'loading' && <div>Loading...</div>}
+      {cities.status === 'loading' && <Loading />}
       {cities.status === 'failed' && <div>{cities.error}</div>}
       {cities.status === 'succeeded' && (
         <div className="big-container">

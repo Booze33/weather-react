@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { fetchCities } from '../../redux/country/countrySlice';
+import Loading from '../loading/loading';
 import './Weather.css';
 
 export function convert(kelvin) {
@@ -19,7 +20,7 @@ function Weather() {
   }, [dispatch]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <Loading />;
   }
 
   if (error) {
