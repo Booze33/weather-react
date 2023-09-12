@@ -11,13 +11,16 @@ export const fetchWeatherData = createAsyncThunk('fetchWeather', async (location
 
   const weather = {
     city: response.data.city.name,
+    country: response.data.city.country,
     img: response.data.list[0].weather[0].icon,
     main: response.data.list[0].weather[0].main,
     condition: response.data.list[0].weather[0].description,
     temperature: response.data.list[0].main.temp,
+    temp_max: response.data.list[0].main.temp_max,
+    temp_min: response.data.list[0].main.temp_min,
     tomorrow: response.data.list[8].main.temp,
-    nextTomorrow: response.data.list[16].main.temp,
-    nextThreeDays: response.data.list[24].main.temp,
+    humidity: response.data.list[0].main.humidity,
+    pressure: response.data.list[0].main.pressure,
   };
 
   return weather;
