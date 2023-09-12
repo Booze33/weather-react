@@ -25,7 +25,7 @@ function Weather() {
 
   if (error) {
     return (
-      <p>
+      <p className="error-msg">
         Error:
         {error}
         . Try again.

@@ -35,7 +35,15 @@ const initialState = {
 const weatherSlice = createSlice({
   name: 'weather',
   initialState,
-  reducers: {},
+  reducers: {
+    selectCity: (state, action) => {
+      const newState = {
+        ...state,
+        selectedCity: action.payload,
+      };
+      return newState;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchWeatherData.pending, (state) => ({
       ...state,
